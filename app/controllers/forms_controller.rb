@@ -18,6 +18,16 @@ class FormsController < ApplicationController
     patient_response.consultant_positive = params[:doctor_good]
     patient_response.consultant_improving = params[:doctor_bad]
 
+    patient_response.save
+
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Rating", :response_description => params[:nurse_rating])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Good", :response_description => params[:nurse_good])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Bad", :response_description => params[:nurse_bad])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Rating", :response_description => params[:food_rating])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Good", :response_description => params[:food_good])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Bad", :response_description => params[:food_bad])
+
+    return :status => 200, :json => "OK"
 
   end
 
