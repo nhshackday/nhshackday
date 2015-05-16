@@ -20,15 +20,14 @@ class FormsController < ApplicationController
 
     patient_response.save
 
-    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Rating", :response_description => params[:nurse_rating])
-    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Good", :response_description => params[:nurse_good])
-    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Bad", :response_description => params[:nurse_bad])
-    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Rating", :response_description => params[:food_rating])
-    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Good", :response_description => params[:food_good])
-    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Bad", :response_description => params[:food_bad])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Rating", :response_descrption => params[:nurse_rating])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Good", :response_descrption => params[:nurse_good])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Nurse Bad", :response_descrption => params[:nurse_bad])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Rating", :response_descrption => params[:food_rating])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Good", :response_descrption => params[:food_good])
+    PatientExtendedResponse.create(:episode_id => episode.id, :response_type => "Food Bad", :response_descrption => params[:food_bad])
 
-    return :status => 200, :json => "OK"
-
+    render :nothing => true, :status => 200
   end
 
 end

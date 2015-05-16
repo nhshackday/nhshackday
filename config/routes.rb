@@ -1,6 +1,6 @@
 Nhshackday::Application.routes.draw do
   match 'site_find' => 'sites#search', via: [:get, :post]
-  match 'form_submit' => 'sites#search', via: [:post]
+  match 'form_submit' => 'forms#submit', via: [:post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
