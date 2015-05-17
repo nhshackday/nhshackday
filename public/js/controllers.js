@@ -8,7 +8,7 @@ myAppControllers.controller('FeedbackIndexController', function ($scope){
 
 });
 
-myAppControllers.controller('FeedbackValidationController', function ($scope, $location, Hospital, Validation){
+myAppControllers.controller('FeedbackValidationController', function ($scope, $location, $mdDialog, Hospital, Validation){
   $scope.gender_options = [
     {text: "Male", value: 0},
     {text: "Female", value: 1},
@@ -24,13 +24,11 @@ myAppControllers.controller('FeedbackValidationController', function ($scope, $l
       Hospital.get(formData.name);
     } else {
       $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.body))
+        $mdDialog.alert()          
           .title('Name Empty')
           .content('Please enter a hospital name to search.')
           .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
-          .targetEvent(ev)
+          .ok('Got it!')          
       );
     }
     // then set a hidden field with id 
@@ -42,19 +40,17 @@ myAppControllers.controller('FeedbackValidationController', function ($scope, $l
       $location.path( "/feedback/form" ); 
     } else {
       $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.body))
+        $mdDialog.alert()          
           .title('Form Empty')
           .content('Please enter details to send.')
           .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
-          .targetEvent(ev)
+          .ok('Got it!')          
       );
     }   
   };  
 });
 
-myAppControllers.controller('FeedbackFormController', function ($scope, $location, Form){
+myAppControllers.controller('FeedbackFormController', function ($scope, $mdDialog, $location, Form){
   $scope.processForm = function(formData){
     if(formData){
       formData.reference = ("patient_ref" + (Math.random()*10000000)).replace(".","")
@@ -62,21 +58,22 @@ myAppControllers.controller('FeedbackFormController', function ($scope, $locatio
       $location.path( "/feedback/complete" ); 
     } else {
       $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.body))
+        $mdDialog.alert()          
           .title('Form Empty')
           .content('Please enter details to send.')
           .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
-          .targetEvent(ev)
+          .ok('Got it!')          
       );
     }  
   };  
 });
 
-myAppControllers.controller('FeedbackCompleteController', function ($scope, Feedback){
+myAppControllers.controller('FeedbackCompleteController', function ($scope, $location, Feedback){
   Feedback.send();
   $scope.reference = localStorage.reference;
+  $scope.gotoIndex = function(){
+    $location.path( "/feedback/index" );
+  };
 });
 
 myAppControllers.controller('FeedbackEditController', function ($scope){

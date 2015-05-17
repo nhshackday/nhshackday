@@ -1,91 +1,99 @@
-<div ng-controller="FeedbackFormController as ctrl" layout="column">
-  <md-content layout-padding layout="column">
-    <h3 class="white_text"> Please enter your procedure details </h3>
-	  <form ng-submit="processForm(formData)" ng-model="formData">
-			<label>Since beginning treatment at this clinic, how would you describe the change (if any) in ACTIVITY LIMITATIONS, SYMPTOMS, EMOTIONS, and OVERALL QUALITY OF LIFE related to your condition?</label>
-	    <md-radio-group ng-model="formData.pgic">
-	      <md-radio-button value="1">No change (or condition has gotten worse)</md-radio-button>
-	      <md-radio-button value="2">Almost the same, hardly any change at all </md-radio-button>
-	      <md-radio-button value="3">A little better, but no noticeable change</md-radio-button>
-	      <md-radio-button value="4">Somewhat better, but the change has not made any real difference</md-radio-button>
-	      <md-radio-button value="5">Moderately better, and a slight but noticeable change</md-radio-button>
-	      <md-radio-button value="6">Better, and a definite improvement that has made a real and worthwhile difference</md-radio-button>
-	     	<md-radio-button value="7">A great deal better, and a considerable improvement that has made all the difference</md-radio-button>
-	    </md-radio-group>
+<div class="absolute_center_parent">
+  <div class="absolute_center_child">
+  	<h3 class="text_align_center white_text"> Please enter your procedure details </h3>
+	  <md-content layout-padding layout="column"  class="main_container">
+		  <form ng-submit="processForm(formData)" ng-model="formData">
+				<label>Since beginning treatment at this clinic, how would you describe the change (if any) in ACTIVITY LIMITATIONS, SYMPTOMS, EMOTIONS, and OVERALL QUALITY OF LIFE related to your condition?</label>
+		    <md-radio-group ng-model="formData.pgic">
+		      <md-radio-button class="md-primary" value="1">No change (or condition has gotten worse)</md-radio-button>
+		      <md-radio-button class="md-primary" value="2">Almost the same, hardly any change at all </md-radio-button>
+		      <md-radio-button class="md-primary" value="3">A little better, but no noticeable change</md-radio-button>
+		      <md-radio-button class="md-primary" value="4">Somewhat better, but the change has not made any real difference</md-radio-button>
+		      <md-radio-button class="md-primary" value="5">Moderately better, and a slight but noticeable change</md-radio-button>
+		      <md-radio-button class="md-primary" value="6">Better, and a definite improvement that has made a real and worthwhile difference</md-radio-button>
+		     	<md-radio-button class="md-primary" value="7">A great deal better, and a considerable improvement that has made all the difference</md-radio-button>
+		    </md-radio-group>
+		    <div class="rule"></div>
+		    <div flex="10" layout layout-align="center center">
+	        <label>How would you rate your degree of change since beginning care at this clinic?<label>
+	      </div>
+	      <md-slider class="md-primary "  flex md-discrete ng-model="formData.vas" step="1" min="1" max="5" aria-label="rating"></md-slider>
+	      <md-button class="center_button grey_backgroud" ng-click="show_extra_form = true">Click here if you would like to provide with extra details</md-button>
+	      <div ng-show="show_extra_form">
+	      	<md-button class="center_button grey_backgroud" ng-click="show_doctor_form = true">For your Doctor</md-button>
+	      	<div ng-show="show_doctor_form">
+		      	<label><p class="text_align_center">How would you rate your doctor?</p></label>
+			    	<md-radio-group ng-model="formData.doctor_rating">
+			    		<div class="width_425">
+					      <md-radio-button  class="md-primary display_inline_block" value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="2" class="display_inline_block"><div class="star_2">2</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="3" class="display_inline_block"><div class="star_3">3</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="4" class="display_inline_block"><div class="star_4">4</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="5" class="display_inline_block"><div class="star_5">5</div></md-radio-button>
+					    </div>
+			   	  </md-radio-group>
+			      <md-input-container flex>
+			        <label>What was good about your doctor?</label>
+			        <textarea ng-model="formData.doctor_good" columns="1" md-maxlength="150"></textarea>
+			      </md-input-container>
 
-	    <div flex="10" layout layout-align="center center">
-        <label>How would you rate your degree of change since beginning care at this clinic?<label>
-      </div>
-      <md-slider flex md-discrete ng-model="formData.vas" step="1" min="1" max="5" aria-label="rating"></md-slider>
-      <md-button ng-click="show_extra_form = true">Click here if you would like to provide with extra details</md-button>
-      <div ng-show="show_extra_form">
-      	<md-button ng-click="show_doctor_form = true">For your Doctor</md-button>
-      	<div ng-show="show_doctor_form">
-	      	<label>How would you rate your doctor?</label>
-		    	<md-radio-group ng-model="formData.doctor_rating">
-			      <md-radio-button value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
-			      <md-radio-button value="2" class="display_inline_block"><div class="star_2">2</div></md-radio-button>
-			      <md-radio-button value="3" class="display_inline_block"><div class="star_3">3</div></md-radio-button>
-			      <md-radio-button value="4" class="display_inline_block"><div class="star_4">4</div></md-radio-button>
-			      <md-radio-button value="5" class="display_inline_block"><div class="star_5">5</div></md-radio-button>
-		   	  </md-radio-group>
-		      <md-input-container flex>
-		        <label>What was good about your doctor?</label>
-		        <textarea ng-model="formData.doctor_good" columns="1" md-maxlength="150"></textarea>
-		      </md-input-container>
+			      <md-input-container flex>
+			        <label>What would you change about your doctor?</label>
+			        <textarea ng-model="formData.doctor_bad" columns="1" md-maxlength="150"></textarea>
+			      </md-input-container>
+			    </div>
 
-		      <md-input-container flex>
-		        <label>What would you change about your doctor?</label>
-		        <textarea ng-model="formData.doctor_bad" columns="1" md-maxlength="150"></textarea>
-		      </md-input-container>
-		    </div>
+			    <br>
+			    <md-button class="center_button grey_backgroud" ng-click="show_nurses_form = true">For your Nurses</md-button>
+	      	<div ng-show="show_nurses_form">
+		      	<label><p class="text_align_center">How would you rate your nurses?</p></label>
+			    	<md-radio-group ng-model="formData.nurses_rating">
+			    		<div class="width_425">
+					      <md-radio-button  class="md-primary display_inline_block" value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="2" class="display_inline_block"><div class="star_2">2</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="3" class="display_inline_block"><div class="star_3">3</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="4" class="display_inline_block"><div class="star_4">4</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="5" class="display_inline_block"><div class="star_5">5</div></md-radio-button>
+					    </div>
+			   	  </md-radio-group>
+			      <md-input-container flex>
+			        <label>What was good about your nurses?</label>
+			        <textarea ng-model="formData.nurses_good" columns="1" md-maxlength="150"></textarea>
+			      </md-input-container>
 
-		    <br>
-		    <md-button ng-click="show_nurses_form = true">For your Nurses</md-button>
-      	<div ng-show="show_nurses_form">
-	      	<label>How would you rate your nurses?</label>
-		    	<md-radio-group ng-model="formData.nurses_rating">
-			      <md-radio-button value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
-			      <md-radio-button value="2" class="display_inline_block"><div class="star_2">2</div></md-radio-button>
-			      <md-radio-button value="3" class="display_inline_block"><div class="star_3">3</div></md-radio-button>
-			      <md-radio-button value="4" class="display_inline_block"><div class="star_4">4</div></md-radio-button>
-			      <md-radio-button value="5" class="display_inline_block"><div class="star_5">5</div></md-radio-button>
-		   	  </md-radio-group>
-		      <md-input-container flex>
-		        <label>What was good about your nurses?</label>
-		        <textarea ng-model="formData.nurses_good" columns="1" md-maxlength="150"></textarea>
-		      </md-input-container>
+			      <md-input-container flex>
+			        <label>What would you change about your nurses?</label>
+			        <textarea ng-model="formData.nurses_bad" columns="1" md-maxlength="150"></textarea>
+			      </md-input-container>
+			    </div>
 
-		      <md-input-container flex>
-		        <label>What would you change about your nurses?</label>
-		        <textarea ng-model="formData.nurses_bad" columns="1" md-maxlength="150"></textarea>
-		      </md-input-container>
-		    </div>
+			    <br>
+			    <md-button class="center_button grey_backgroud" ng-click="show_food_form = true">About your Food</md-button>
+	      	<div ng-show="show_food_form">
+		      	<label><p class="text_align_center">How would you rate your food?</p></label>
+			    	<md-radio-group ng-model="formData.food_rating">
+			    		<div class="width_425">
+					      <md-radio-button  class="md-primary display_inline_block" value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="2" class="display_inline_block"><div class="star_2">2</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="3" class="display_inline_block"><div class="star_3">3</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="4" class="display_inline_block"><div class="star_4">4</div></md-radio-button>
+					      <md-radio-button  class="md-primary display_inline_block" value="5" class="display_inline_block"><div class="star_5">5</div></md-radio-button>
+					    </div>
+			   	  </md-radio-group>
+			      <md-input-container flex>
+			        <label>What was good about your food?</label>
+			        <textarea ng-model="formData.food_good" columns="1" md-maxlength="150"></textarea>
+			      </md-input-container>
 
-		    <br>
-		    <md-button ng-click="show_food_form = true">About your Food</md-button>
-      	<div ng-show="show_food_form">
-	      	<label>How would you rate your food?</label>
-		    	<md-radio-group ng-model="formData.food_rating">
-			      <md-radio-button value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
-			      <md-radio-button value="2" class="display_inline_block"><div class="star_2">2</div></md-radio-button>
-			      <md-radio-button value="3" class="display_inline_block"><div class="star_3">3</div></md-radio-button>
-			      <md-radio-button value="4" class="display_inline_block"><div class="star_4">4</div></md-radio-button>
-			      <md-radio-button value="5" class="display_inline_block"><div class="star_5">5</div></md-radio-button>
-		   	  </md-radio-group>
-		      <md-input-container flex>
-		        <label>What was good about your food?</label>
-		        <textarea ng-model="formData.food_good" columns="1" md-maxlength="150"></textarea>
-		      </md-input-container>
-
-		      <md-input-container flex>
-		        <label>What would you change about your food?</label>
-		        <textarea ng-model="formData.food_bad" columns="1" md-maxlength="150"></textarea>
-		      </md-input-container>
-		     </div>
-	   	</div>
-	   	<br>
-		  <md-button type="submit" class="md-raised md-success">Submit</md-button>
-	  </form>
-	</md-content>
+			      <md-input-container flex>
+			        <label>What would you change about your food?</label>
+			        <textarea ng-model="formData.food_bad" columns="1" md-maxlength="150"></textarea>
+			      </md-input-container>
+			     </div>
+		   	</div>
+		   	<br>
+			  <md-button class="md-raised md-primary center_button" type="submit" class="md-raised md-success">Submit</md-button>
+		  </form>
+		</md-content>
+	</div>
 </div>

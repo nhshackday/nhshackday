@@ -12,10 +12,18 @@ a{
 	color:#333;
 }
 /* TYPOGRAPHY */
-
+p{
+	margin-bottom:0;
+}
 h2{
 	size: 50px;
 	margin:15px;
+}
+.no_top_margin{
+	margin-top:0;
+}
+.padding_20{
+	padding:20px;
 }
 .header{
 	margin:0;
@@ -28,6 +36,7 @@ h2{
 }
 /* POSITIONING */
 .absolute_center_parent{
+	background: #0066CC !important;
   position: relative;
   height:100vh;
 }
@@ -43,7 +52,6 @@ h2{
 
 .absolute_center_child_70{
 	width: 70%;
-  height: 80%;
   overflow: auto;
   margin: auto;
   position: absolute;
@@ -76,6 +84,10 @@ h2{
 .align_center{
 	margin:0 auto;
 }
+.width_425{
+	width: 393px;
+	margin:0 auto;
+}
 .date_picker{
 	border: none !important;
   border-bottom: 1px solid #ccc !important;
@@ -99,6 +111,23 @@ ul.projects{
 	width:70%;
 	margin:0 auto;
 	background: #f4f4f4;
+}
+.main_container_90{
+	border-radius: 7.5px;
+	width:90%;
+	margin:0 auto;
+	background: #f4f4f4;
+}
+.center_button{
+	width:100% !important;
+	margin:0 auto !important;
+}
+.grey_backgroud{
+	background: #EDEDED !important;
+}
+.rule{
+	border-bottom:solid 1px #EDEDED;
+	margin:10px;
 }
 .welcome{
 	padding:20px;
