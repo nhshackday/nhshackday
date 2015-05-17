@@ -36,6 +36,7 @@
             title: 'Your Ratings',
             subtitle: 'Distribution of feedback by patients'
           },
+          width: '300px',
           bars: 'horizontal' // Required for Material Bar Charts.
         };
 
@@ -78,10 +79,35 @@
       }
     </script>
     <style>
+    body{
+      background:#0066CC;
+    }
     .consultant_responses {
         -webkit-column-count: 3; /* Chrome, Safari, Opera */
         -moz-column-count: 3; /* Firefox */
         column-count: 3;
+    }
+    .main_container{
+      padding:20px 40px;
+      background: #fff;
+    }
+    .rule{
+      margin:20px 0;
+      border-bottom: solid 1px #ededed;
+    }
+    .header{
+      background:#0066CC;
+      color:#fff;
+    }
+    .no_margin{
+      margin:0;
+    }
+    .text_align_center{
+      text-align: center;
+    }
+    .padding_top_20{
+      padding-top:20px;
+      margin-bottom:20px;
     }
     </style>
   <%= stylesheet_link_tag "bubbles" %>
@@ -90,7 +116,7 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  
+
   <script>
   $(function() {
     $( "#from" ).datepicker({
@@ -111,37 +137,43 @@
     });
   });
   </script>
-  
+
 
   </head>
   <body>
-<h1>MyCare - Your validated feedback</h1>
+  <div class="header text_align_center padding_top_20">
+    <h1 class="no_margin">MyCare - Your validated feedback</h1>
+  </div>
+<div class="main_container">
+  Pick Date Range<br/>
+  <label for="from">From</label>
+  <input type="text" id="from" name="from">
+  <label for="to">to</label>
+  <input type="text" id="to" name="to">
+  <br/><br/>
+Filter by Your Sites: <%= select_tag "filter[site]", options_for_select(["All","Guy's Hospital","Royal Free   Hospital"]) %>
+Filter by Your Procedures: <%= select_tag "filter[site]", options_for_select(["All","Shoulder Replacement Surgery ","Rotator Cuff Surgery"]) %>
+  <div class="rule"></div>
 
+      <div id="ratings"></div>
+  <div class="rule"></div>
 
-Pick Date Range<br/>
-<label for="from">From</label>
-<input type="text" id="from" name="from">
-<label for="to">to</label>
-<input type="text" id="to" name="to">
-<br/><br/>
-Filter by Your Sites: <%= select_tag "filter[site]", options_for_select(["All","Guy's Hospital","Royal Free Hospital"]) %>
-Filter by Your Procedures: <%= select_tag "filter[site]", options_for_select(["All","Shoulder Replacement Surgery","Rotator Cuff Surgery"]) %>
-    <div id="ratings"></div>
-    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
-<ul>
-<li>1 - No change (or condition has gotten worse)</li>
-<li>2 - Almost the same, hardly any change at all</li>
-<li>3 - A little better, but no noticeable change</li>
-<li>4 - Somewhat better, but the change has not made any real difference</li>
-<li>5 - Moderately better, and a slight but noticeable change</li>
-<li>6 - Better, and a definite improvement that has made a real and worthwhile difference</li>
-<li>7 - A great deal better, and a considerable improvement that has made all the difference</li>
-</ul>
-<div class="consultant_responses">
-<p>What was good about your consultant?</p>
-<p>What could your consultant do better?</p>
+      <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+  <ul>
+  <li>1 - No change (or condition has gotten worse)</li>
+  <li>2 - Almost the same, hardly any change at all</li>
+  <li>3 - A little better, but no noticeable change</li>
+  <li>4 - Somewhat better, but the change has not made any real difference</li>
+  <li>5 - Moderately better, and a slight but noticeable change</li>
+  <li>6 - Better, and a definite improvement that has made a real and worthwhile difference</li>
+  <li>7 - A great deal better, and a considerable improvement that has made all the difference</li>
+  </ul>
+  <div class="rule"></div>
+  <div class="consultant_responses">
+  <p>What was good about your consultant?</p>
+  <p>What could your consultant do better?</p>
+  </div>
+  <%= render partial: "patient_response", collection: @patient_responses %>
 </div>
-<%= render partial: "patient_response", collection: @patient_responses %>
-
   </body>
 </html>
