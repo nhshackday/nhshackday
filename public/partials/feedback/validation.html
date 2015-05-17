@@ -1,0 +1,44 @@
+<h3> Please enter your procedure details </h3>
+<md-content layout-padding layout="column">
+  <form ng-submit="findHospital(formData)" ng-model="formData">
+    <md-input-container flex>
+      <label>Name of Hospital</label>
+      <input ng-model="formData.name">
+    </md-input-container>
+    <md-button type="submit" class="md-raised md-success">Find</md-button>    
+  </form>
+  <form ng-submit="processForm(formData)" ng-model="formData">
+    <md-radio-group ng-model="formData.pgic">
+      <div ng-repeat="hospital in hospitals">
+        <md-radio-button ng-click="hideRadios({{hospital[0]}})" value="{{hospital[0]}}">{{hospital[1] + ", " + hospital[2] + ", " + hospital[3]}}</md-radio-button>
+      </div>
+    </md-radio-group>
+    <label>Date of discharge</label>
+	  <input type="date"
+      ng-model="formData.discharge_date"
+      [name="discharge_date"]
+      [min="discharge_date"]
+      [max="discharge_date"]
+      [required="discharge_date"]
+      [ng-required="discharge_date"]
+      [ng-change="discharge_date"]
+      [placeholder="Select a Date"]
+    >         
+    <md-input-container flex>
+      <label>Age at discharge</label>
+      <input ng-model="formData.age">
+    </md-input-container>
+
+    <md-select placeholder="Gender" ng-model="formData.gender">
+      <span ng-repeat="option in gender_options">
+        <md-option value="{{option.value}}">{{option.text}}</md-option>
+      </span>
+    </md-select>
+
+    <md-input-container flex>
+      <label>Postcode</label>
+      <input ng-model="formData.partial_postcode">
+    </md-input-container>
+    <md-button type="submit" class="md-raised md-success">Proceed</md-button>    
+  </form>
+</md-content>
