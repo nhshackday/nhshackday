@@ -1,5 +1,23 @@
 <html>
   <head>
+ <!-- Angular Material CSS now available via Google CDN; version 0.8 used here -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+  <link rel="stylesheet" href="bower_components/material-date-picker/build/styles/mbdatepicker.css"/>
+  <!-- Angular Material Dependencies -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+  <!-- Angular Material Javascript now available via Google CDN; version 0.8 used here -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
+  <script type="text/javascript" src="bower_components/underscore-min.js"></script>
+  <script type="text/javascript" src="bower_components/angular-underscore.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/controllers.js"></script>
+  <script type="text/javascript" src="js/services.js"></script>
+
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1.1", {packages:["bar"]});
@@ -7,13 +25,13 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Scale', 'You', 'Others @ Sites', 'National'],
-          ['No change (or condition has gotten worse)', 1000, 400, 200],
-          ['Almost the same, hardly any change at all', 1170, 460, 250],
-          ['A little better, but no noticeable change', 660, 1120, 300],
-          ['4', 1030, 540, 350],
-          ['5', 1030, 540, 350],
-          ['6', 1030, 540, 350],
-          ['7', 1030, 540, 350]
+          ['1', 5,7, 6],
+          ['2', 10,15, 10],
+          ['3', 15,10, 15],
+          ['4', 30,30, 30],
+          ['5', 41,30, 35],
+          ['6', 35,30, 35],
+          ['7', 40,34, 40]
         ]);
 
         var options = {          
@@ -23,7 +41,7 @@
           },
           axes: {
             x: {
-              0: {side: 'top',TextStyle: {color: '#FF0000'}} // Top x-axis.
+              0: {side: 'bottom',TextStyle: {color: '#FF0000'}} // Top x-axis.
             }
           },
           bars: 'vertical' // Required for Material Bar Charts.
@@ -45,14 +63,19 @@
   </head>
   <body>
     <div id="barchart_material" style="width: 900px; height: 500px;"></div>
-</p>No change (or condition has gotten worse) 1
-Almost the same, hardly any change at all 2
-A little better, but no noticeable change 3<br/>
-Somewhat better, but the change has not made any real difference 4<br/>
-Moderately better, and a slight but noticeable change 5<br/>
-Better, and a definite improvement that has made a real and worthwhile difference 6<br/>
-A great deal better, and a considerable improvement that has made all the difference 7
-</p>
+<ul>
+<li>1 - No change (or condition has gotten worse)</li>
+<li>2 - Almost the same, hardly any change at all</li>
+<li>3 - A little better, but no noticeable change</li>
+<li>4 - Somewhat better, but the change has not made any real difference</li>
+<li>5 - Moderately better, and a slight but noticeable change</li>
+<li>6 - Better, and a definite improvement that has made a real and worthwhile difference</li>
+<li>7 - A great deal better, and a considerable improvement that has made all the difference</li>
+</ul>
+<div class="consultant_responses">
+<p>What was good about your consultant?</p>
+<p>What could your consultant do better?</p>
+</div>
 <%= render partial: "patient_response", collection: @patient_responses %>
 
   </body>
