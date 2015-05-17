@@ -1,0 +1,59 @@
+body{
+	background: #0066CC !important;
+	margin:0;
+	padding:0;
+}
+
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#333;
+}
+/* TYPOGRAPHY */
+
+h2{
+	size: 50px;
+	margin:15px;
+}
+
+/* POSITIONING */
+.absolute_center_parent{
+  position: relative;
+  height:100vh;
+}
+
+.absolute_center_child{
+	width: 50%;
+  height: 60%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.text_align_center{
+	text-align: center;
+}
+/* PROJECTS INDEX */
+
+ul.projects{
+	text-align: center;
+}
+.projects a:hover{
+	text-decoration: underline;
+}
+.display_inline_block{
+	display: inline-block;
+}
+
+.main_container{
+	border-radius: 7.5px;
+	width:70%;
+	margin:0 auto;
+	background: #f4f4f4;
+}
+.welcome{
+	padding:20px;
+}
