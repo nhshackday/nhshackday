@@ -19,6 +19,31 @@ h2{
 	size: 50px;
 	margin:15px;
 }
+.no_margin{
+	margin:0;
+}
+.hide{
+	display: none;
+}
+.show_dialog{
+	border-radius: 7.5px;
+ 	box-shadow: 0px 0px 30px #777;
+	background:#ffffff;
+	position: absolute;
+	display: block;
+	top:50px;
+	left:0;
+	right:0;
+	margin:0 auto;
+	width:30%;
+	z-index: 15;
+}
+.for_validation{
+	height:245px;
+}
+.for_form{
+	height:140px;
+}
 .no_top_margin{
 	margin-top:0;
 }
@@ -36,6 +61,12 @@ h2{
 .header h1{
 	margin: 0;
 	text-align: center;
+}
+.face {
+  position: absolute;
+  margin-top: -50px;
+  width: 26px;
+  margin-left: 5px;
 }
 /* POSITIONING */
 .absolute_center_parent{
@@ -60,6 +91,10 @@ h2{
 .margin_top_20{
 	margin-top:20px !important;
 }
+.margin_top_10{
+	margin-top:10px !important;
+}
+
 .white_text{
 	color: #ffffff;
 }
@@ -86,7 +121,7 @@ h2{
  	height:30px;
 }
 .margin_bottom_10{
-	margin-bottom: 10px;
+	margin-bottom: 10px !important;
 }
 .margin_top_20{
 	margin-top: 20px;
