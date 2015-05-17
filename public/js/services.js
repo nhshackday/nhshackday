@@ -36,7 +36,6 @@ myAppServices.service("Validation", function($rootScope){
       $rootScope.hospital_id = formData.hospital_id;
       $rootScope.name = formData.name;
       $rootScope.age = formData.age;
-      $rootScope.partial_postcode = new_pc;
       $rootScope.discharge_date = formData.discharge_date;
       $rootScope.gender = formData.gender;
 		}
