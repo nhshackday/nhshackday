@@ -55,7 +55,7 @@ myAppControllers.controller('FeedbackValidationController', function ($scope, $t
       $("#validation_dialog").addClass("show_dialog");      
       $timeout(function(){
         $location.path("/feedback/form"); 
-      }, 5000);
+      }, 10000);
     } else {
       $mdDialog.show(
         $mdDialog.alert()          
