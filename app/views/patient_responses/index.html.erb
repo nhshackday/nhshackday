@@ -1,6 +1,31 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+         ['Score', 'Number of Responses', { role: 'style' }],
+         <% (1..5).each do |rating| %>
+          <% score = PatientResponse.where("consultant_rating = ?", rating).size %>
+          [<%= rating %>, <%= score %>, ''],
+         <% end %>
+      ]);
+
+        var options = {
+          chart: {
+            title: 'Your Ratings',
+            subtitle: 'Distribution of feedback by patients'
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('ratings'));
+
+        chart.draw(data, options);
+      }
+    </script>
     <script type="text/javascript">
       google.load("visualization", "1.1", {packages:["bar"]});
       google.setOnLoadCallback(drawChart);
@@ -16,10 +41,10 @@
           ['7', 1030, 540, 350]
         ]);
 
-        var options = {          
+        var options = {
           chart: {
             title: 'PGIC',
-            subtitle: 'PGIC data... compare yourself'            
+            subtitle: 'PGIC data... compare yourself'
           },
           axes: {
             x: {
@@ -34,16 +59,17 @@
         chart.draw(data, options);
       }
     </script>
-    <style> 
+    <style>
     .consultant_responses {
         -webkit-column-count: 3; /* Chrome, Safari, Opera */
         -moz-column-count: 3; /* Firefox */
         column-count: 3;
     }
-    </style>  
-  <link rel="stylesheet" href="css/bubbles.css" />
+    </style>
+  <%= stylesheet_link_tag "bubbles" %>
   </head>
   <body>
+    <div id="ratings"></div>
     <div id="barchart_material" style="width: 900px; height: 500px;"></div>
 </p>No change (or condition has gotten worse) 1
 Almost the same, hardly any change at all 2
