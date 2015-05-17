@@ -14,6 +14,10 @@ myAppControllers.controller('FeedbackValidationController', function ($scope, $l
     {text: "Female", value: 1},
   ];
 
+  $scope.hideRadios = function(hospital_id){
+    console.log("in hide radio");
+  };
+
   $scope.findHospital = function(formData){
     $scope.hospitals = "No hospital found";
     if(formData){

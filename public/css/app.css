@@ -17,14 +17,22 @@ h2{
 	size: 50px;
 	margin:15px;
 }
-
+.header{
+	margin:0;
+	padding:10px;
+	color:#f4f4f4;
+}
+.header h1{
+	margin: 0;
+	text-align: center;
+}
 /* POSITIONING */
 .absolute_center_parent{
   position: relative;
   height:100vh;
 }
 
-.absolute_center_child{
+.absolute_center_child_50{
 	width: 50%;
   height: 60%;
   overflow: auto;
@@ -33,8 +41,46 @@ h2{
   top: 0; left: 0; bottom: 0; right: 0;
 }
 
+.absolute_center_child_70{
+	width: 70%;
+  height: 80%;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+.md-input{
+	background: #EDEDED !important;
+}
+.vertical_align_top{
+	vertical-align: top;
+}
 .text_align_center{
 	text-align: center;
+}
+.margin_top_20{
+	margin-top:20px !important;
+}
+.white_text{
+	color: #ffffff;
+}
+.width_80{
+	width:80%;
+}
+.pull_left{
+	float:left;
+}
+.width_100{
+	width:80%;
+}
+.align_center{
+	margin:0 auto;
+}
+.date_picker{
+	border: none !important;
+  border-bottom: 1px solid #ccc !important;
+ 	background: #EDEDED !important;
+ 	height:30px;
 }
 /* PROJECTS INDEX */
 

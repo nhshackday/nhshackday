@@ -24,7 +24,7 @@ myAppServices.service('Hospital', function($http, $rootScope, $location, $route)
         console.log($rootScope.hospitals);
         $route.reload();
       }).error(function(){
-      	return "Not Found";
+      	return ["No hospital found please search again."];
       });
 		}
 	}
