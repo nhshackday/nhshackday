@@ -26,8 +26,8 @@
           var data = google.visualization.arrayToDataTable([
          ['Score', 'Number of Responses', { role: 'style' }],
          <% (1..5).each do |rating| %>
-          <% score = PatientResponse.where("consultant_rating = ?", rating).size %>
-          [<%= rating %>, <%= score %>, ''],
+          <% score = PatientResponse.where("consultant_rating = ?", rating).all.size %>
+          ['<%= "#{rating}. " %>', <%= score %>, ''],
          <% end %>
       ]);
 
