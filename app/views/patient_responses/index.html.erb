@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Scale', 'You', 'Others @ Sites', 'National'],
+          ['No change (or condition has gotten worse)', 1000, 400, 200],
+          ['Almost the same, hardly any change at all', 1170, 460, 250],
+          ['A little better, but no noticeable change', 660, 1120, 300],
+          ['4', 1030, 540, 350],
+          ['5', 1030, 540, 350],
+          ['6', 1030, 540, 350],
+          ['7', 1030, 540, 350]
+        ]);
+
+        var options = {          
+          chart: {
+            title: 'PGIC',
+            subtitle: 'PGIC data... compare yourself'            
+          },
+          axes: {
+            x: {
+              0: {side: 'top',TextStyle: {color: '#FF0000'}} // Top x-axis.
+            }
+          },
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <style> 
+    .consultant_responses {
+        -webkit-column-count: 3; /* Chrome, Safari, Opera */
+        -moz-column-count: 3; /* Firefox */
+        column-count: 3;
+    }
+    </style>
+  <%= stylesheet_link_tag "bubbles" %>
+  </head>
+  <body>
+    <div id="barchart_material" style="width: 900px; height: 500px;"></div>
+</p>No change (or condition has gotten worse) 1
+Almost the same, hardly any change at all 2
+A little better, but no noticeable change 3<br/>
+Somewhat better, but the change has not made any real difference 4<br/>
+Moderately better, and a slight but noticeable change 5<br/>
+Better, and a definite improvement that has made a real and worthwhile difference 6<br/>
+A great deal better, and a considerable improvement that has made all the difference 7
+</p>
+<%= render partial: "patient_response", collection: @patient_responses %>
+
+  </body>
+</html>
