@@ -6,12 +6,12 @@
       <form ng-submit="findHospital(formData)" ng-model="formData">
         <md-input-container flex class="width_80 pull_left">
           <label>Name of Hospital</label>
-          <input ng-model="formData.name" class="width_100 date_picker">
+          <input required ng-model="formData.name" class="width_100 date_picker">
         </md-input-container>
         <md-button type="submit" class="md-raised md-primary pull_left vertical_align_top margin_top_20">Find</md-button>    
       </form>
       <form ng-submit="processForm(formData)" ng-model="formData">
-        <md-radio-group ng-model="formData.hospital_id">
+        <md-radio-group required ng-model="formData.hospital_id">
           <div ng-repeat="hospital in hospitals track by $index">
             <div ng-click="hideRadios(hospital[0])">
               <md-radio-button class="md-primary" value="{{hospital[0]}}">{{hospital[1] + ", " + hospital[2] + ", " + hospital[3]}}</md-radio-button>
@@ -19,7 +19,7 @@
           </div>
         </md-radio-group>
         <label>Date of discharge</label>
-    	  <input type="date"
+    	  <input required type="date"
           class="date_picker"
           ng-model="formData.discharge_date"
           [name="discharge_date"]
@@ -32,7 +32,7 @@
         >         
         <md-input-container flex class="no_padding">
           <label>Age at discharge</label>
-          <input ng-model="formData.age">
+          <input required ng-model="formData.age">
         </md-input-container>
 
         <md-select placeholder="Gender" ng-model="formData.gender">
@@ -44,9 +44,9 @@
         <md-input-container flex>
           <label>Your Postcode</label>
           <p>
-            We will only use a partial postcode <span ng-show="partial_postcode">{{partial_postcode}}</span>
+            We will only use a partial postcode <span ng-show="partial_postcode.length > 3">The postcode we will use: {{partial_postcode}}</span>
           </p>
-          <input ng-change="stripPostcode(formData.partial_postcode)" ng-model="formData.partial_postcode">
+          <input required ng-change="stripPostcode(formData.partial_postcode)" ng-model="formData.partial_postcode">
         </md-input-container>
         <md-button class="md-raised md-primary center_button" type="submit" class="md-raised md-success">Proceed</md-button>
       </form>
