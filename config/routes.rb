@@ -1,4 +1,5 @@
 Nhshackday::Application.routes.draw do
+  #get "patient_responses/index"
   match 'site_find' => 'sites#search', via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,6 +15,7 @@ Nhshackday::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :patient_responses
 
   # Example resource route with options:
   #   resources :products do
