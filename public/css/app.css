@@ -41,22 +41,10 @@ h2{
   height:100vh;
 }
 
-.absolute_center_child_50{
-	width: 50%;
-  height: 60%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
+.absolute_center_child{
+	background: #0066CC !important;
 }
 
-.absolute_center_child_70{
-	width: 70%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-}
 .md-input{
 	background: #EDEDED !important;
 }
@@ -93,6 +81,9 @@ h2{
   border-bottom: 1px solid #ccc !important;
  	background: #EDEDED !important;
  	height:30px;
+}
+.margin_bottom_10{
+	margin-bottom: 10px;
 }
 /* PROJECTS INDEX */
 
