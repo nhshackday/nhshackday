@@ -4,7 +4,7 @@
 	  <md-content layout-padding layout="column"  class="main_container">
 	  	<md-button class="md-raised center_button margin_bottom_10" ng-href="#/feedback/validation">Go Back</md-button>
 		  <form ng-submit="processForm(formData)" ng-model="formData">
-				<label>Since beginning treatment at this clinic, how would you describe the change (if any) in ACTIVITY LIMITATIONS, SYMPTOMS, EMOTIONS, and OVERALL QUALITY OF LIFE related to your condition?</label>
+				<label>Since beginning treatment at this clinic, how would you describe the change (if any) in <b>activity limitations, symtoms, emotions, and overall quality of life</b> related to your condition?</label>
 		    <md-radio-group ng-model="formData.pgic">
 		      <md-radio-button class="md-primary" value="1">No change (or condition has gotten worse)</md-radio-button>
 		      <md-radio-button class="md-primary" value="2">Almost the same, hardly any change at all </md-radio-button>
@@ -21,9 +21,9 @@
 	      <md-slider class="md-primary "  flex md-discrete ng-model="formData.vas" step="1" min="1" max="5" aria-label="rating"></md-slider>
 	      <md-button class="center_button grey_backgroud" ng-click="show_extra_form = true">Click here if you would like to provide with extra details</md-button>
 	      <div ng-show="show_extra_form">
-	      	<md-button class="center_button grey_backgroud" ng-click="show_doctor_form = true">For your Doctor</md-button>
+	      	<md-button class="center_button grey_backgroud" ng-click="show_doctor_form = true">For your Consultant</md-button>
 	      	<div ng-show="show_doctor_form">
-		      	<label><p class="text_align_center">How would you rate your doctor?</p></label>
+		      	<label><p class="text_align_center">How would you rate your consultant?</p></label>
 			    	<md-radio-group ng-model="formData.doctor_rating">
 			    		<div class="width_425">
 					      <md-radio-button  class="md-primary display_inline_block" value="1" class="display_inline_block"><div class="star_1">1</div></md-radio-button>
@@ -34,12 +34,12 @@
 					    </div>
 			   	  </md-radio-group>
 			      <md-input-container flex>
-			        <label>What was good about your doctor?</label>
+			        <label>What was good about your consultant?</label>
 			        <textarea ng-model="formData.doctor_good" columns="1" md-maxlength="150"></textarea>
 			      </md-input-container>
 
 			      <md-input-container flex>
-			        <label>What would you change about your doctor?</label>
+			        <label>What could your consultant do better?</label>
 			        <textarea ng-model="formData.doctor_bad" columns="1" md-maxlength="150"></textarea>
 			      </md-input-container>
 			    </div>
@@ -63,7 +63,7 @@
 			      </md-input-container>
 
 			      <md-input-container flex>
-			        <label>What would you change about your nurses?</label>
+			        <label>What could your nurses do better?</label>
 			        <textarea ng-model="formData.nurses_bad" columns="1" md-maxlength="150"></textarea>
 			      </md-input-container>
 			    </div>
@@ -87,13 +87,12 @@
 			      </md-input-container>
 
 			      <md-input-container flex>
-			        <label>What would you change about your food?</label>
+			        <label>What could we improve your food?</label>
 			        <textarea ng-model="formData.food_bad" columns="1" md-maxlength="150"></textarea>
 			      </md-input-container>
 			     </div>
 		   	</div>
-		   	<br>
-			  <md-button class="md-raised md-primary center_button" type="submit" class="md-raised md-success">Submit</md-button>
+			  <md-button class="margin_top_20 md-raised md-primary center_button" type="submit" class="md-raised md-success">Submit</md-button>
 		  </form>
 		</md-content>
 	</div>

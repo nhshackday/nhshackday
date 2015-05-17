@@ -30,23 +30,29 @@ myAppServices.service('Hospital', function($http, $rootScope, $location, $route)
 	}
 });
 
-myAppServices.service("Validation", function(){
+myAppServices.service("Validation", function($rootScope){
 	return {
 		set: function(formData){
-      console.log(formData);
-      localStorage.name = formData.name;
-      localStorage.age = formData.age;
-      localStorage.partial_postcode = formData.partial_postcode;
-      localStorage.discharge_date = formData.discharge_date;
-      localStorage.gender = formData.gender;
+      $rootScope.hospital_id = formData.hospital_id;
+      $rootScope.name = formData.name;
+      $rootScope.age = formData.age;
+      $rootScope.partial_postcode = new_pc;
+      $rootScope.discharge_date = formData.discharge_date;
+      $rootScope.gender = formData.gender;
 		}
 	}
 });
 
-myAppServices.service("Form", function(){
+myAppServices.service("Form", function($rootScope){
   return {
     set: function(formData){
       console.log(formData);
+      localStorage.hospital_id = $rootScope.hospital_id;
+      localStorage.name = $rootScope.name;
+      localStorage.age = $rootScope.age;
+      localStorage.partial_postcode = $rootScope.partial_postcode;
+      localStorage.discharge_date = $rootScope.discharge_date;
+      localStorage.gender = $rootScope.gender;
       localStorage.pgic = formData.pgic;
       localStorage.vas = formData.vas;
       localStorage.doctor_rating = formData.doctor_rating;

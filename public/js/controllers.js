@@ -8,14 +8,23 @@ myAppControllers.controller('FeedbackIndexController', function ($scope){
 
 });
 
-myAppControllers.controller('FeedbackValidationController', function ($scope, $location, $mdDialog, Hospital, Validation){
+myAppControllers.controller('FeedbackValidationController', function ($scope, $rootScope, $location, $mdDialog, Hospital, Validation){
   $scope.gender_options = [
     {text: "Male", value: 0},
     {text: "Female", value: 1},
   ];
+  $scope.stripPostcode = function(postcode){
+    if(postcode.length > 3){
+      var reg = /[a-zA-Z]{1,2}\d{1,2}\s?\d{1}(.*)/;
+      var new_pc = postcode.replace(postcode.match(reg)[1], "");
+      $rootScope.partial_postcode = new_pc;
+    }else{
+      $rootScope.partial_postcode = postcode;
+    }
+  };
 
   $scope.hideRadios = function(hospital_id){
-    console.log("in hide radio");
+    console.log(hospital_id);
   };
 
   $scope.findHospital = function(formData){
